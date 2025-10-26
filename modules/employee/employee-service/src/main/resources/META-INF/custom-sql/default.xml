@@ -1,0 +1,12 @@
+<custom-sql>
+    <sql id="com.portal.rh.employee.service.persistence.EmployeeFinder.findActiveWithDepartment">
+        <![CDATA[
+            SELECT e.* FROM RH_employee e
+            INNER JOIN RH_Department d ON e.departmentId = d.departmentId
+            WHERE e.active = ? AND d.active = ?
+                AND LOWER(e.fullName) LIKE ?
+            ORDER BY e.fullName ASC
+            LIMIT ?
+        ]]>
+    </sql>
+</custom-sql>
