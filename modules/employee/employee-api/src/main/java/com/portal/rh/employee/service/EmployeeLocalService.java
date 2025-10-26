@@ -76,6 +76,8 @@ public interface EmployeeLocalService
 			ServiceContext serviceContext)
 		throws PortalException;
 
+	public List<Employee> buscarFuncionariosAtivos(String name, int maximo);
+
 	/**
 	 * Creates a new employee with the primary key. Does not add the employee to the database.
 	 *
@@ -113,12 +115,10 @@ public interface EmployeeLocalService
 	 *
 	 * @param employeeId the primary key of the employee
 	 * @return the employee that was removed
-	 * @throws EmployeeNotFoundException
 	 * @throws PortalException if a employee with the primary key could not be found
 	 */
 	@Indexable(type = IndexableType.DELETE)
-	public Employee deleteEmployee(long employeeId)
-		throws EmployeeNotFoundException, PortalException;
+	public Employee deleteEmployee(long employeeId) throws PortalException;
 
 	/**
 	 * @throws PortalException

@@ -61,6 +61,12 @@ public class EmployeeLocalServiceUtil {
 			fullName, email, departmentId, active, serviceContext);
 	}
 
+	public static List<Employee> buscarFuncionariosAtivos(
+		String name, int maximo) {
+
+		return getService().buscarFuncionariosAtivos(name, maximo);
+	}
+
 	/**
 	 * Creates a new employee with the primary key. Does not add the employee to the database.
 	 *
@@ -104,12 +110,10 @@ public class EmployeeLocalServiceUtil {
 	 *
 	 * @param employeeId the primary key of the employee
 	 * @return the employee that was removed
-	 * @throws EmployeeNotFoundException
 	 * @throws PortalException if a employee with the primary key could not be found
 	 */
 	public static Employee deleteEmployee(long employeeId)
-		throws com.portal.rh.employee.exception.EmployeeNotFoundException,
-			   PortalException {
+		throws PortalException {
 
 		return getService().deleteEmployee(employeeId);
 	}

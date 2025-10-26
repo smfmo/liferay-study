@@ -16,7 +16,9 @@ import com.portal.rh.employee.model.Department;
 import com.portal.rh.employee.model.Employee;
 import com.portal.rh.employee.model.EmployeeTable;
 import com.portal.rh.employee.service.base.EmployeeLocalServiceBaseImpl;
+import com.portal.rh.employee.service.persistence.EmployeeFinder;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import java.util.List;
 
@@ -25,6 +27,9 @@ import java.util.List;
 	service = AopService.class
 )
 public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
+
+	@Reference
+	private EmployeeFinder employeeFinder;
 
 	@Override
 	public Employee addEmployee(String fullName, String email, long departmentId,
@@ -78,7 +83,7 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 	}
 
 	@Override
-	public Employee deleteEmployee(long employeeId) throws EmployeeNotFoundException {
+	public Employee deleteEmployee(long employeeId) throws PortalException {
 		Employee employee = findById(employeeId);
 		return employeePersistence.remove(employee);
 	}
@@ -102,8 +107,14 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 				.where(
 						EmployeeTable.INSTANCE.departmentId.eq(departmentId)
 								.and(EmployeeTable.INSTANCE.active.eq(true))
-				);
+				)
+				.orderBy(EmployeeTable.INSTANCE.fullName.ascending());
+
 		return employeePersistence.dslQuery(query);
+	}
+
+	public List<Employee> buscarFuncionariosAtivos(String name, int maximo) {
+		return employeeFinder.findActiveWithDepartment(true, true, name, maximo);
 	}
 
 	private void validate(String name, String email, long departmentId)

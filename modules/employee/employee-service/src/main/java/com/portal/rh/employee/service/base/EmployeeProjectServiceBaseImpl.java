@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.service.BaseServiceImpl;
 import com.portal.rh.employee.model.EmployeeProject;
 import com.portal.rh.employee.service.EmployeeProjectService;
 import com.portal.rh.employee.service.persistence.DepartmentPersistence;
+import com.portal.rh.employee.service.persistence.EmployeeFinder;
 import com.portal.rh.employee.service.persistence.EmployeePersistence;
 import com.portal.rh.employee.service.persistence.EmployeeProjectPersistence;
 import com.portal.rh.employee.service.persistence.ProjectPersistence;
@@ -117,6 +118,9 @@ public abstract class EmployeeProjectServiceBaseImpl
 
 	@Reference
 	protected EmployeePersistence employeePersistence;
+
+	@Reference
+	protected EmployeeFinder employeeFinder;
 
 	@Reference
 	protected com.portal.rh.employee.service.EmployeeProjectLocalService

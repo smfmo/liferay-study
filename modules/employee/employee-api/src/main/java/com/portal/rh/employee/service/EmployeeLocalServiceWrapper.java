@@ -55,6 +55,13 @@ public class EmployeeLocalServiceWrapper
 			fullName, email, departmentId, active, serviceContext);
 	}
 
+	@Override
+	public java.util.List<com.portal.rh.employee.model.Employee>
+		buscarFuncionariosAtivos(String name, int maximo) {
+
+		return _employeeLocalService.buscarFuncionariosAtivos(name, maximo);
+	}
+
 	/**
 	 * Creates a new employee with the primary key. Does not add the employee to the database.
 	 *
@@ -105,13 +112,11 @@ public class EmployeeLocalServiceWrapper
 	 *
 	 * @param employeeId the primary key of the employee
 	 * @return the employee that was removed
-	 * @throws EmployeeNotFoundException
 	 * @throws PortalException if a employee with the primary key could not be found
 	 */
 	@Override
 	public com.portal.rh.employee.model.Employee deleteEmployee(long employeeId)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			   com.portal.rh.employee.exception.EmployeeNotFoundException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _employeeLocalService.deleteEmployee(employeeId);
 	}

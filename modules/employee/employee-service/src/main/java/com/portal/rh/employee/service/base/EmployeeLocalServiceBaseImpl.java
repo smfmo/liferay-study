@@ -40,6 +40,7 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.portal.rh.employee.model.Employee;
 import com.portal.rh.employee.service.EmployeeLocalService;
 import com.portal.rh.employee.service.persistence.DepartmentPersistence;
+import com.portal.rh.employee.service.persistence.EmployeeFinder;
 import com.portal.rh.employee.service.persistence.EmployeePersistence;
 import com.portal.rh.employee.service.persistence.EmployeeProjectPersistence;
 import com.portal.rh.employee.service.persistence.ProjectPersistence;
@@ -115,14 +116,11 @@ public abstract class EmployeeLocalServiceBaseImpl
 	 *
 	 * @param employeeId the primary key of the employee
 	 * @return the employee that was removed
-	 * @throws EmployeeNotFoundException
 	 * @throws PortalException if a employee with the primary key could not be found
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
-	public Employee deleteEmployee(long employeeId)
-		throws EmployeeNotFoundException, PortalException {
-
+	public Employee deleteEmployee(long employeeId) throws PortalException {
 		return employeePersistence.remove(employeeId);
 	}
 
@@ -578,6 +576,9 @@ public abstract class EmployeeLocalServiceBaseImpl
 
 	@Reference
 	protected EmployeePersistence employeePersistence;
+
+	@Reference
+	protected EmployeeFinder employeeFinder;
 
 	@Reference
 	protected EmployeeProjectPersistence employeeProjectPersistence;

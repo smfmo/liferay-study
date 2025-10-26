@@ -33,6 +33,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 import com.portal.rh.employee.model.Department;
 import com.portal.rh.employee.service.DepartmentLocalService;
 import com.portal.rh.employee.service.persistence.DepartmentPersistence;
+import com.portal.rh.employee.service.persistence.EmployeeFinder;
 import com.portal.rh.employee.service.persistence.EmployeePersistence;
 import com.portal.rh.employee.service.persistence.EmployeeProjectPersistence;
 import com.portal.rh.employee.service.persistence.ProjectPersistence;
@@ -446,6 +447,9 @@ public abstract class DepartmentLocalServiceBaseImpl
 
 	@Reference
 	protected EmployeePersistence employeePersistence;
+
+	@Reference
+	protected EmployeeFinder employeeFinder;
 
 	@Reference
 	protected EmployeeProjectPersistence employeeProjectPersistence;

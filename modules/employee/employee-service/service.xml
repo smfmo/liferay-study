@@ -70,7 +70,7 @@
 		<column name="modifiedDate" type="Date"/>
 	</entity>
 
-	<!-- EMployeeProject Entity (Many-to-Many) -->
+	<!-- EmployeeProject Entity (Many-to-Many) -->
 	<entity name="EmployeeProject" local-service="true" remote-service="true">
 		<column name="employeeProjectId" type="long" primary="true"/>
 		<column name="employeeId" type="long"/>
