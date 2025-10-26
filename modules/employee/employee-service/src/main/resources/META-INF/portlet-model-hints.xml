@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.portal.rh.employee.model.Department">
+		<field name="departmentId" type="long" />
+		<field name="name" type="String" />
+		<field name="email" type="String" />
+		<field name="phone" type="String" />
+		<field name="active" type="boolean" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.portal.rh.employee.model.Employee">
+		<field name="uuid" type="String" />
+		<field name="employeeId" type="long" />
+		<field name="fullName" type="String" />
+		<field name="email" type="String" />
+		<field name="departmentId" type="long" />
+		<field name="position" type="String" />
+		<field name="active" type="boolean" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.portal.rh.employee.model.EmployeeProject">
+		<field name="employeeProjectId" type="long" />
+		<field name="employeeId" type="long" />
+		<field name="projectId" type="long" />
+		<field name="allocatedHours" type="int" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+	</model>
+	<model name="com.portal.rh.employee.model.Project">
+		<field name="projectId" type="long" />
+		<field name="name" type="String" />
+		<field name="description" type="String" />
+		<field name="startDate" type="Date" />
+		<field name="endDate" type="Date" />
+		<field name="active" type="boolean" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

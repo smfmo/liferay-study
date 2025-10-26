@@ -1,0 +1,10 @@
+Bundle-Name: employee-api
+Bundle-SymbolicName: com.portal.rh.employee.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.portal.rh.employee.exception,\
+	com.portal.rh.employee.model,\
+	com.portal.rh.employee.service,\
+	com.portal.rh.employee.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../employee-service/service.xml
